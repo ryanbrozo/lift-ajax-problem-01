@@ -1,0 +1,8 @@
+project/project/
+.DS_Store
+.cache
+.classpath
+bin/
+target/
+.project
+_notes

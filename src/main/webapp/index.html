@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>Lift AJAX problem</title>
+	<style type="text/css">
+		.scroll {
+			width: 300px;
+			height: 150px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+	</style>
+</head>
+<body>
+<div class="scroll lift:Problem">
+	<div id="content"></div>
+</div>
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.scroll').scroll(
+		function() {
+			// Add dynamic content if scroll bar reaches 80% of content
+			var tolerance = $('#content').get(0).scrollHeight * .20
+			if ($('#content').scrollTop() >= $('#content').get(0).scrollHeight
+					- $('#content').height() - tolerance) {
+				// Get last id rendered	
+				var end = parseInt($(".item:last").attr("id"), 10);
+				var start = end + 1;
+				// Initiate AJAX call to get 10 more rows
+				$.get("item/" + start + "/10", function(data) {
+					if (data != "") {
+						// Append data obtained to end of list
+						$(".item:last").after(data.items);
+					}
+				}, 'json');
+			}
+		}
+	);
+});
+</script>
+</body>
+</html>
