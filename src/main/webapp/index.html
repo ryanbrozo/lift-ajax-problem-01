@@ -22,8 +22,8 @@ $(document).ready(function() {
 		function() {
 			// Add dynamic content if scroll bar reaches 80% of content
 			var tolerance = $('#content').get(0).scrollHeight * .20
-			if ($('#content').scrollTop() >= $('#content').get(0).scrollHeight
-					- $('#content').height() - tolerance) {
+			if ($('.scroll').scrollTop() >= $('.scroll').get(0).scrollHeight
+					- $('.scroll').height() - tolerance) {
 				// Get last id rendered	
 				var end = parseInt($(".item:last").attr("id"), 10);
 				var start = end + 1;

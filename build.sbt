@@ -11,22 +11,6 @@ seq(webSettings: _*)
 // using 0.2.4+ of the sbt web plugin
 scanDirectories in Compile := Nil
 
-//sbtResolver <<= (sbtResolver) { r =>
-//  Option("http://192.168.3.133:8082/libs-release") map { x =>
-//    Resolver.url("proxy repo for sbt", url(x))(Resolver.ivyStylePatterns)
-//  } getOrElse r
-//}
-
-//externalResolvers <<= resolvers map { rs =>
-//	Seq(
-//		"GIC" at "http://192.168.3.133:8082/libs-release",
-//		"maven" at "http://repo1.maven.org/maven2/",
-//		"Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
-//		"scala-tools" at "http://scala-tools.org/repo-releases/",
-//		"twitter.com" at "http://maven.twttr.com/"
-//	)
-//}
-
 libraryDependencies ++= {
   val liftVersion = "2.4" // Put the current/latest lift version here
   Seq(
